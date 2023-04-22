@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Cause Effect</title>
+		<script
+			src="https://kit.fontawesome.com/82d63fa7a1.js"
+			crossorigin="anonymous"
+		></script>
+		<link rel="stylesheet" href="./main.css" />
+	</head>
+	<body>
+		<div class="sidebar">
+			<div class="search-con">
+				<input type="text" class="search" placeholder="Find person..." />
+				<input type="button" class="search-btn" value="🔍" />
+			</div>
+			<div class="names"></div>
+		</div>
+		<main class="main">
+			<div class="con">
+				<div class="current-search">
+					<p class="select-details">
+						<i class="fa-regular fa-user"></i> Name:
+						<span class="cb-name"></span>
+					</p>
+					<p class="select-details">
+						<i class="fa-solid fa-street-view"></i> Street:
+						<span class="cb-street"></span>
+					</p>
+					<p class="select-details">
+						<i class="fa-solid fa-building"></i> City:
+						<span class="cb-city"></span>
+					</p>
+					<p class="select-details">
+						<i class="fa-solid fa-city"></i> State:
+						<span class="cb-state"></span>
+					</p>
+					<p class="select-details">
+						<i class="fa-regular fa-flag"></i> Country:
+						<span class="cb-country"></span>
+					</p>
+					<p class="select-details">
+						<i class="fa-solid fa-phone"></i> Phone:
+						<span class="cb-telephon"></span>
+					</p>
+					<!-- <p class="select-details">
+						<i class="fa-solid fa-cake-candles"></i> Birthday:
+						<span class="cb-birthday"></span>
+					</p> -->
+				</div>
+			</div>
+			<div class="search-history"></div>
+		</main>
+		<script src="./app.js"></script>
+	</body>
+</html>
