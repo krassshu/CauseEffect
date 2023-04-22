@@ -1,6 +1,8 @@
 const searchName = document.querySelector(".names")
 const sidebar = document.querySelector(".sidebar")
 const personDetails = document.querySelectorAll(".select-details span")
+const searchInput = document.querySelector(".search")
+const searchBtn = document.querySelector(".search-btn")
 
 let personData = []
 let maxIterations = 100
@@ -19,7 +21,9 @@ printJSON()
 		createPersonList()
 		getPerson()
 	})
-	.then(() => {})
+	.then(() => {
+		searchPerson()
+	})
 
 const createPersonList = () => {
 	let personId = 0
@@ -54,9 +58,35 @@ const getPerson = () => {
 			personDetails[0].textContent = `${personInfo.first_name} ${personInfo.last_name}`
 			personDetails[1].textContent = `${personInfo.street}`
 			personDetails[2].textContent = `${personInfo.city}`
-			personDetails[3].textContent = `${personInfo.state}`
+			if (personInfo.state !== null) {
+				personDetails[3].textContent = `${personInfo.state}`
+			} else {
+				personDetails[3].textContent = "---"
+			}
 			personDetails[4].textContent = `${personInfo.country}`
 			personDetails[5].textContent = `${personInfo.phone}`
 		})
 	})
 }
+
+const searchPerson = () => {
+	let personToSearch = []
+	const nameArr = document.querySelectorAll(".name")
+	nameArr.forEach((el) => {
+		personToSearch.push(el)
+	})
+	// console.log(personToSearch)
+	searchInput.addEventListener("input", (e) => {
+		// console.log(e.target.value)
+		const searchString = e.target.value.toLowerCase()
+		personToSearch.filter((person) => {
+			const name = person.textContent.toLowerCase()
+			if (name.includes(searchString)) {
+				person.style.display = ""
+			} else {
+				person.style.display = "none"
+			}
+		})
+	})
+}
+
