@@ -5,9 +5,12 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Cause Effect</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
 		<script
 			src="https://kit.fontawesome.com/82d63fa7a1.js"
 			crossorigin="anonymous"
@@ -16,11 +19,25 @@
 	</head>
 	<body>
 		<div class="sidebar">
+			<div class="people-amount">
+				<p>Choose number of people to show: </p>
+				<select name="people amount" id="people-amount">
+					<option value="25">25</option>
+					<option value="50" selected>50</option>
+					<option value="75">75</option>
+					<option value="100">100</option>
+					<option value="250">250</option>
+					<option value="500">500</option>
+					<option value="1000">1000</option>
+				</select>
+			</div>
 			<div class="search-con">
 				<input type="text" class="search" placeholder="Find person..." />
 				<input type="button" class="search-btn" value="🔍" />
 			</div>
-			<div class="names"></div>
+			<div class="names-container">
+				<div class="names"></div>
+			</div>
 		</div>
 		<main class="main">
 			<div class="con">

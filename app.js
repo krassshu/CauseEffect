@@ -1,11 +1,12 @@
 const searchName = document.querySelector(".names")
-const sidebar = document.querySelector(".sidebar")
 const personDetails = document.querySelectorAll(".select-details span")
 const searchInput = document.querySelector(".search")
 const searchBtn = document.querySelector(".search-btn")
+const containerName = document.querySelector(".names-container")
+const peopleAmount = document.querySelector("#people-amount")
 
 let personData = []
-let maxIterations = 100
+let maxIterations = 50
 
 async function printJSON() {
 	try {
@@ -16,14 +17,9 @@ async function printJSON() {
 		console.log("err")
 	}
 }
-printJSON()
-	.then(() => {
-		createPersonList()
-		getPerson()
-	})
-	.then(() => {
-		searchPerson()
-	})
+printJSON().then(() => {
+	createPersonList()
+})
 
 const createPersonList = () => {
 	let personId = 0
@@ -37,16 +33,18 @@ const createPersonList = () => {
 		newParagraph.textContent = `${iterator.first_name} ${iterator.last_name}`
 		searchName.appendChild(newParagraph)
 		newParagraph.setAttribute("tabindex", 0)
-		sidebar.style.overflowY = "scroll"
 
 		personId++
 		maxIterations--
 	}
+
+	containerName.style.overflowY = "auto"
+	searchPerson()
+	getPerson()
 }
 
 const getPerson = () => {
 	const nameArr = document.querySelectorAll(".name")
-
 	nameArr.forEach((data) => {
 		const personId = data.getAttribute("data-id")
 		data.addEventListener("click", () => {
@@ -75,9 +73,8 @@ const searchPerson = () => {
 	nameArr.forEach((el) => {
 		personToSearch.push(el)
 	})
-	// console.log(personToSearch)
+
 	searchInput.addEventListener("input", (e) => {
-		// console.log(e.target.value)
 		const searchString = e.target.value.toLowerCase()
 		personToSearch.filter((person) => {
 			const name = person.textContent.toLowerCase()
@@ -89,4 +86,14 @@ const searchPerson = () => {
 		})
 	})
 }
-
+const removeElements = () => {
+	const elementsToRemove = document.querySelectorAll(".name")
+	elementsToRemove.forEach((element) => {
+		element.remove()
+	})
+}
+peopleAmount.addEventListener("change", () => {
+	maxIterations = peopleAmount.value
+	removeElements()
+	createPersonList()
+})
