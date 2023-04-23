@@ -20,7 +20,7 @@
 	<body>
 		<div class="sidebar">
 			<div class="people-amount">
-				<p>Choose number of people to show: </p>
+				<p>Choose number of people to show:</p>
 				<select name="people amount" id="people-amount">
 					<option value="25">25</option>
 					<option value="50" selected>50</option>
@@ -72,7 +72,14 @@
 					</p> -->
 				</div>
 			</div>
-			<div class="search-history"></div>
+			<div class="search-history">
+				<div class="clear-history">
+					<i class="fa-solid fa-trash-can"></i>
+					<i class="fa-regular fa-message"><p>Clear history</p></i>
+				</div>
+				<h2>Searching history:</h2>
+				<div class="search-items"></div>
+			</div>
 		</main>
 		<script src="./app.js"></script>
 	</body>

@@ -4,6 +4,7 @@ const searchInput = document.querySelector(".search")
 const searchBtn = document.querySelector(".search-btn")
 const containerName = document.querySelector(".names-container")
 const peopleAmount = document.querySelector("#people-amount")
+const historyItems = document.querySelector(".search-items")
 
 let personData = []
 let maxIterations = 50
@@ -63,6 +64,7 @@ const getPerson = () => {
 			}
 			personDetails[4].textContent = `${personInfo.country}`
 			personDetails[5].textContent = `${personInfo.phone}`
+			searchHistory()
 		})
 	})
 }
@@ -85,6 +87,52 @@ const searchPerson = () => {
 		})
 	})
 }
+
+const searchHistory = () => {
+	const personInfo = document.querySelectorAll(".select-details")
+
+	const searchItem = document.createElement("div")
+	searchItem.classList.add("search-item")
+	historyItems.appendChild(searchItem)
+	setTimeout(() => {
+		searchItem.style.opacity = "1"
+	}, 100)
+
+	const nameParagraph = document.createElement("p")
+	nameParagraph.classList.add("select-details")
+	nameParagraph.innerHTML = personInfo[0].innerHTML
+	searchItem.appendChild(nameParagraph)
+
+	const streetParagraph = document.createElement("p")
+	streetParagraph.classList.add("select-details")
+	streetParagraph.innerHTML = personInfo[1].innerHTML
+	searchItem.appendChild(streetParagraph)
+
+	const cityParagraph = document.createElement("p")
+	cityParagraph.classList.add("select-details")
+	cityParagraph.innerHTML = personInfo[2].innerHTML
+	searchItem.appendChild(cityParagraph)
+
+	const stateParagraph = document.createElement("p")
+	stateParagraph.classList.add("select-details")
+	stateParagraph.innerHTML = personInfo[3].innerHTML
+	searchItem.appendChild(stateParagraph)
+
+	const countryParagraph = document.createElement("p")
+	countryParagraph.classList.add("select-details")
+	countryParagraph.innerHTML = personInfo[4].innerHTML
+	searchItem.appendChild(countryParagraph)
+
+	const phoneParagraph = document.createElement("p")
+	phoneParagraph.classList.add("select-details")
+	phoneParagraph.innerHTML = personInfo[5].innerHTML
+	searchItem.appendChild(phoneParagraph)
+}
+
+const clearHistory = () => {
+    searchItems.appendChild.remove
+}
+
 const removeElements = () => {
 	const elementsToRemove = document.querySelectorAll(".name")
 	elementsToRemove.forEach((element) => {

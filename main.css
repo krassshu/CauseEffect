@@ -16,7 +16,7 @@ body {
 }
 .sidebar {
 	display: flex;
-    flex-direction: column;
+	flex-direction: column;
 	height: 100svh;
 	width: 250px;
 	padding-top: 18px;
@@ -61,7 +61,7 @@ body {
 }
 
 .names-container {
-    height: 100%;
+	height: 100%;
 }
 .names {
 	margin-top: 8px;
@@ -110,10 +110,59 @@ body {
 }
 
 .search-history {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	width: 100%;
 	height: 300px;
+	font-size: 16px;
+	margin-top: 42px;
 }
-
+.search-history h2 {
+	text-align: center;
+	font-size: 26px;
+	border-bottom: 2px solid var(--light-dark);
+}
+.search-items {
+	display: flex;
+	justify-self: center;
+	align-items: center;
+	gap: 12px;
+	overflow-x: auto;
+}
+.search-item {
+	min-width: 290px;
+	min-height: 250px;
+	line-height: 32px;
+	padding: 8px;
+	background-color: var(--light-dark);
+	color: var(--light-gray);
+	border-radius: 8px;
+	opacity: 0;
+	transition: opacity 0.5s;
+}
+.search-item .select-details:nth-child(1) {
+	font-size: 21px;
+}
+.clear-history {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 8px;
+	font-size: 20px;
+	cursor: pointer;
+}
+.fa-message {
+	font-size: 100px;
+}
+.fa-message p {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 16px;
+	font-family: "Roboto", sans-serif;
+}
 .active {
 	background-color: var(--light-gray);
 	color: var(--light-dark);
