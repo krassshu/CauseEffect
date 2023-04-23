@@ -37,8 +37,8 @@ const createPersonList = () => {
 		personId++
 		maxIterations--
 	}
-
 	containerName.style.overflowY = "auto"
+
 	searchPerson()
 	getPerson()
 }
@@ -47,8 +47,8 @@ const getPerson = () => {
 	const nameArr = document.querySelectorAll(".name")
 	nameArr.forEach((data) => {
 		const personId = data.getAttribute("data-id")
+		const personInfo = personData[personId]
 		data.addEventListener("click", () => {
-			const personInfo = personData[personId]
 			nameArr.forEach((atr) => {
 				atr.classList.remove("active")
 			})
@@ -73,7 +73,6 @@ const searchPerson = () => {
 	nameArr.forEach((el) => {
 		personToSearch.push(el)
 	})
-
 	searchInput.addEventListener("input", (e) => {
 		const searchString = e.target.value.toLowerCase()
 		personToSearch.filter((person) => {
