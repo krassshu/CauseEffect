@@ -148,19 +148,28 @@ body {
 .clear-history {
 	position: absolute;
 	top: 0;
-	right: 0;
+	right: 120px;
 	padding: 8px;
 	font-size: 20px;
 	cursor: pointer;
 }
+.clear-history:hover > .fa-message {
+	opacity: 1;
+}
 .fa-message {
+	position: absolute;
+	top: -95px;
+	right: -50px;
 	font-size: 100px;
+	opacity: 0;
+	transition: opacity 0.3s;
 }
 .fa-message p {
 	position: absolute;
-	top: 0;
+	top: 20px;
+	width: 75px;
 	right: 0;
-	font-size: 16px;
+	font-size: 18px;
 	font-family: "Roboto", sans-serif;
 }
 .active {

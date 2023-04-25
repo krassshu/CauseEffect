@@ -5,6 +5,7 @@ const searchBtn = document.querySelector(".search-btn")
 const containerName = document.querySelector(".names-container")
 const peopleAmount = document.querySelector("#people-amount")
 const historyItems = document.querySelector(".search-items")
+const clearBtn = document.querySelector(".clear-history")
 
 let personData = []
 let maxIterations = 50
@@ -93,10 +94,11 @@ const searchHistory = () => {
 
 	const searchItem = document.createElement("div")
 	searchItem.classList.add("search-item")
-	historyItems.appendChild(searchItem)
+	// historyItems.appendChild(searchItem)
+	historyItems.insertBefore(searchItem, historyItems.firstChild)
 	setTimeout(() => {
 		searchItem.style.opacity = "1"
-	}, 100)
+	}, 0)
 
 	const nameParagraph = document.createElement("p")
 	nameParagraph.classList.add("select-details")
@@ -130,7 +132,9 @@ const searchHistory = () => {
 }
 
 const clearHistory = () => {
-    searchItems.appendChild.remove
+	historyItems.innerHTML = ""
+	// Do zrobienia! Animowane usuwanie elementow jedno po drugim
+	// const itemsToRemove = document.querySelectorAll(".search-item")
 }
 
 const removeElements = () => {
@@ -144,3 +148,4 @@ peopleAmount.addEventListener("change", () => {
 	removeElements()
 	createPersonList()
 })
+clearBtn.addEventListener("click", clearHistory)
